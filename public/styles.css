@@ -1,0 +1,35 @@
+/* public/styles.css */
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline;
+    margin-left: -50px;
+    margin-top: -5px;
+}
+
+#terminal {
+    white-space: pre-wrap;
+}
+
+.title {
+    display: inline;
+    font-weight: bold;
+}
+
+.content {
+/*    display: flex;*/
+    align-items: flex-start;
+    max-width: 80%;
+    margin: -1.2ch 13ch;
+}
+
+.date {
+    display: inline;
+    font-size: 10px;
+}
+
+a {
+    color: green;
+}

@@ -1,0 +1,46 @@
+<!-- views/admin.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <ul>
+        <li>Bold text: <'strong'>Bold text<'/strong'></li>
+        <li>Italic text: <'em'>Italic text<'/em'></li>
+        <li>Underlined text: <'u'>Underlined text<'/u'></li>
+        <li>Link: <'a' href="https://google.com">LINK<'/a'></li>
+    </ul>
+    <form action="/admin" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+
+        <label for="content">Content:</label>
+        <textarea id="content" name="content"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+
+    <h2>Existing Articles:</h2>
+<% articles.forEach((article) => { %>
+    <div>
+        <h3><%= article.title %></h3>
+        <p><%- article.content %></p>
+        <form action="/edit/<%= article.id %>" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/delete" method="POST">
+            <input type="hidden" name="id" value="<%= article.id %>">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+<% }) %>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Add your favicon here -->
+    <link rel="icon" href="/fav.png">
+
+    <!-- Add your page title here -->
+    <title>Blond's Journal</title>
+</head>
+<body>
+    <% articles.forEach(function(article) { %>
+        <div id="terminal">
+            <h1 class="title"><%= "root@derBunker:~# " + article.title %></h1>
+            <p class="date">Date: <%= article.date %></p>
+            <p class="content"><%- article.content %></p>
+        </div>
+    <% }) %>
+
+</body>
+<script>
+    var loader = document.createElement('div');
+    loader.setAttribute('style', 'position:fixed; top:0; right:0; bottom:0; left:0; z-index:100000; background: rgba(0,0,0,100) url(https://i.imgur.com/GbUrBfl.gif) 50% 50% / 64px 64px no-repeat;');
+    document.body.appendChild(loader);
+    window.onload = function() { setTimeout(function(){ loader.remove(); }, 500); }
+</script>
+</html>
